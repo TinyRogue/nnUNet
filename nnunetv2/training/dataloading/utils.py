@@ -35,9 +35,9 @@ def _convert_to_npy(npz_file: str, unpack_segmentation: bool = True, overwrite_e
 
         if verify_npy:
             try:
-                np.load(data_npy, mmap_mode='r')
+                np.load(data_npy, mmap_mode='r+')
                 if isfile(seg_npy):
-                    np.load(seg_npy, mmap_mode='r')
+                    np.load(seg_npy, mmap_mode='r+')
             except ValueError:
                 os.remove(data_npy)
                 os.remove(seg_npy)
